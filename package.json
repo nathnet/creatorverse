@@ -1,31 +1,38 @@
 {
   "name": "codepath-webdev3-prework",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "react-router build",
+    "dev": "react-router dev",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "react-router": "^7.14.2"
+    "@picocss/pico": "^2.1.1",
+    "@react-router/node": "7.14.0",
+    "@react-router/serve": "7.14.0",
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.105.1",
+    "isbot": "^5.1.36",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router": "7.14.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^24.12.2",
+    "@react-router/dev": "7.14.0",
+    "@types/node": "^22",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "^10.2.1",
+    "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.5.0",
-    "typescript": "~6.0.2",
-    "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "globals": "^17.6.0",
+    "sass": "^1.99.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.1",
+    "vite": "^8.0.3"
   }
 }
