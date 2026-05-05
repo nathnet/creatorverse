@@ -1,0 +1,39 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: color-mix(in srgb, var(--pico-background-color) 75%, transparent);
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+nav ul li a[aria-current="page"] {
+  color: var(--pico-primary);
+  font-weight: 600;
+  text-shadow:
+    0 0 8px var(--pico-primary),
+    0 0 20px color-mix(in srgb, var(--pico-primary) 60%, transparent);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--pico-primary-hover);
+    text-shadow:
+      0 0 10px var(--pico-primary-hover),
+      0 0 24px color-mix(in srgb, var(--pico-primary-hover) 60%, transparent);
+    text-decoration: none;
+  }
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--pico-primary);
+  letter-spacing: 0.05em;
+
+  &:hover {
+    color: var(--pico-primary-hover);
+    text-decoration: none;
+  }
+}

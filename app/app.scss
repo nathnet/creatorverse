@@ -1,10 +1,12 @@
 @use "@picocss/pico/scss/pico";
 @use "@picocss/pico/scss/colors" as *;
 @use "./components/CreatorCard";
+@use "./components/Navbar";
 @use "./routes/creators/list";
 
 :root {
   --pico-font-family: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 

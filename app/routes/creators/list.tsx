@@ -1,4 +1,12 @@
+import type { Route } from "./+types/list";
 import CreatorCard from "~/components/CreatorCard";
+
+export const links: Route.LinksFunction = () => [
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap",
+  },
+];
 
 export function meta() {
   return [{ title: "Creators" }];
@@ -7,7 +15,10 @@ export function meta() {
 export default function ShowCreators() {
   return (
     <>
-      <h1>Creators</h1>
+      <section className="hero">
+        <h1>Creatorverse</h1>
+        <p>Discover and find your new favorite creators</p>
+      </section>
       <div className="creators-grid">
         <CreatorCard
           creator={{
