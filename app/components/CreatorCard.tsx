@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 
 export type CreatorUrls = {
@@ -66,6 +67,16 @@ const PLATFORM_ICONS: Record<string, () => React.ReactElement> = {
 const MAIN_PLATFORMS = ["youtube", "instagram", "tiktok"] as const;
 
 export default function CreatorCard({ creator }: { creator: Creator }) {
+  const descRef = useRef<HTMLParagraphElement>(null);
+  const [isClamped, setIsClamped] = useState(false);
+
+  useEffect(() => {
+    const description = descRef.current;
+    if (!description) return;
+    
+    setIsClamped(description.scrollHeight > description.clientHeight);
+  }, [creator.description]);
+
   const mainLinks = (MAIN_PLATFORMS as readonly string[])
     .map((p) => ({ platform: p, handle: creator.url[p] }))
     .filter((entry): entry is { platform: string; handle: string } =>
@@ -88,10 +99,19 @@ export default function CreatorCard({ creator }: { creator: Creator }) {
 
       <div className="creator-card-body">
 
-        <hgroup>
+        <div>
           <h3>{creator.name}</h3>
-          {creator.description && <p>{creator.description}</p>}
-        </hgroup>
+          {creator.description && (
+            <div className="creator-card-desc">
+              <p ref={descRef}>{creator.description}</p>
+              {isClamped && (
+                <Link to={`/${creator.id}`} className="creator-card-read-more">
+                  Read more →
+                </Link>
+              )}
+            </div>
+          )}
+        </div>
 
         <footer className="creator-card-footer">
           <div className="creator-card-platforms">

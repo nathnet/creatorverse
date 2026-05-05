@@ -3,6 +3,16 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border: 1px solid color-mix(in srgb, var(--pico-primary) 25%, var(--pico-card-border-color));
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 24px color-mix(in srgb, var(--pico-primary) 20%, transparent);
+  }
 }
 
 .creator-card-cover {
@@ -46,16 +56,41 @@
   gap: 0;
   flex: 1;
 
-  hgroup {
+  > div {
     width: 100%;
     margin-bottom: var(--pico-spacing);
 
     h3 { margin-bottom: 0.25rem; }
 
-    p {
-      color: var(--pico-muted-color);
-      font-size: 0.75rem;
-      margin: 0;
+    .creator-card-desc {
+      position: relative;
+      margin-bottom: 0.35rem;
+
+      p {
+        color: var(--pico-muted-color);
+        font-size: 0.9rem;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    .creator-card-read-more {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 0.9rem;
+      color: var(--pico-primary);
+      text-decoration: none;
+      background: linear-gradient(to right, transparent, var(--pico-card-background-color) 25%);
+      padding-left: 2.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -64,9 +99,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 0.5rem;
-  flex-wrap: wrap;
   margin-top: auto;
 }
 
