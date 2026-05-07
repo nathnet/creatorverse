@@ -3,6 +3,7 @@ import type { Tables } from "./database.types";
 export type CreatorUrls = {
   youtube?: string;
   instagram?: string;
+  twitter?: string;
   tiktok?: string;
   [platform: string]: string | undefined;
 };
@@ -10,7 +11,7 @@ export type CreatorUrls = {
 export type Creator = {
   id: number;
   name: string;
-  url: CreatorUrls;
+  urls: CreatorUrls;
   description?: string | null;
   imageUrl?: string | null;
 };
@@ -21,6 +22,6 @@ export function toCreator(row: Tables<"creators">): Creator {
     name: row.name,
     description: row.description,
     imageUrl: row.image_url,
-    url: (row.url ?? {}) as CreatorUrls,
+    urls: (row.urls ?? {}) as CreatorUrls,
   };
 }

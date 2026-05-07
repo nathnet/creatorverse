@@ -22,7 +22,7 @@ export default function CreatorCard({ creator }: { creator: Creator }) {
   }, [creator.description]);
 
   const mainLinks = (MAIN_PLATFORMS as readonly string[])
-    .map((p) => ({ platform: p, handle: creator.url[p] }))
+    .map((p) => ({ platform: p, handle: creator.urls[p] }))
     .filter((entry): entry is { platform: string; handle: string } =>
       Boolean(entry.handle),
     );

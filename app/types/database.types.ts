@@ -21,7 +21,7 @@ export type Database = {
           id: number
           image_url: string | null
           name: string
-          url: Json
+          urls: Json
         }
         Insert: {
           created_at?: string
@@ -29,7 +29,7 @@ export type Database = {
           id?: number
           image_url?: string | null
           name: string
-          url?: Json
+          urls?: Json
         }
         Update: {
           created_at?: string
@@ -37,7 +37,7 @@ export type Database = {
           id?: number
           image_url?: string | null
           name?: string
-          url?: Json
+          urls?: Json
         }
         Relationships: []
       }

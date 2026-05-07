@@ -36,9 +36,9 @@ export default function ViewCreator({ loaderData }: Route.ComponentProps) {
 
   const allLinks = [
     ...(MAIN_PLATFORMS as readonly string[])
-      .filter((platform) => Boolean(creator.url[platform]))
-      .map((platform) => ({ platform: platform, handle: creator.url[platform] as string })),
-    ...Object.entries(creator.url)
+      .filter((platform) => Boolean(creator.urls[platform]))
+      .map((platform) => ({ platform: platform, handle: creator.urls[platform] as string })),
+    ...Object.entries(creator.urls)
       .filter(
         ([platform, handle]) =>
           !(MAIN_PLATFORMS as readonly string[]).includes(platform) && Boolean(handle),

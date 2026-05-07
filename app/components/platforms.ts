@@ -2,6 +2,7 @@ import {
   YoutubeIcon,
   InstagramIcon,
   TikTokIcon,
+  TwitterIcon,
 } from "~/components/PlatformIcons";
 
 export const PLATFORM_CONFIG: Record<
@@ -20,12 +21,17 @@ export const PLATFORM_CONFIG: Record<
     label: "TikTok",
     buildUrl: (h) => `https://tiktok.com/@${h}`,
   },
+  twitter: {
+    label: "Twitter / X",
+    buildUrl: (h) => `https://x.com/${h}`,
+  },
 };
 
-export const MAIN_PLATFORMS = ["youtube", "instagram", "tiktok"] as const;
+export const MAIN_PLATFORMS = ["youtube", "instagram", "tiktok", "twitter"] as const;
 
 export const PLATFORM_ICONS: Record<string, () => React.ReactElement> = {
   youtube: YoutubeIcon,
   instagram: InstagramIcon,
   tiktok: TikTokIcon,
+  twitter: TwitterIcon,
 };
