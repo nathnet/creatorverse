@@ -1,6 +1,7 @@
 import { createClient } from "~/client";
 import type { Route } from "./+types/list";
 import CreatorCard from "~/components/CreatorCard";
+import "./list.scss";
 
 export const links: Route.LinksFunction = () => [
   {
@@ -37,6 +38,7 @@ const CREATORS = [
       youtube: "janesmithchannel",
       instagram: "jane_smith_insta",
       twitter: "janesmith_twitter",
+      website: "https://janesmith.example.com",
     },
   },
   {

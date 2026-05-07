@@ -15,7 +15,7 @@ The following **required** functionality is completed:
 - [ ] **At least five content creators are displayed on the homepage of the app**
 - [ ] **Each content creator item includes their name, a link to their channel/page, and a short description of their content**
 - [ ] **API calls use the async/await design pattern via Axios or fetch()**
-- [ ] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
+- [x] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
 - [ ] **Each content creator has their own unique URL**
 - [ ] **The user can edit a content creator to change their name, url, or description**
 - [ ] **The user can delete a content creator**
@@ -58,6 +58,7 @@ First challenge was trying to set up React TypeScript-templated Vite with React 
 5. Create navbar and hero banner: 0.5 hours
 6. Added "Read more" and truncation on CreatorCard: 1.5 hours
 7. Updated README.md with CodePath's template: 0.17 hours
+8. Created view creator page: 1 hour
 
 ## License
 
