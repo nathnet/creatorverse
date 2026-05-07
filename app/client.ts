@@ -5,6 +5,7 @@ import {
   type CookieOptions,
 } from "@supabase/ssr";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "./types/database.types";
 
 const SUPABASE_URL: string | undefined = process.env.SUPABASE_URL;
 const SUPABASE_API_KEY: string | undefined = process.env.SUPABASE_API_KEY;
@@ -14,12 +15,12 @@ if (!SUPABASE_URL || !SUPABASE_API_KEY) {
 }
 
 export function createClient(request: Request): {
-  supabaseClient: SupabaseClient;
+  supabaseClient: SupabaseClient<Database>;
   headers: Headers;
 } {
   const headers: Headers = new Headers();
 
-  const supabaseClient: SupabaseClient = createServerClient(
+  const supabaseClient = createServerClient<Database>(
     SUPABASE_URL!,
     SUPABASE_API_KEY!,
     {

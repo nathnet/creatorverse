@@ -1,46 +1,49 @@
 import { Link } from "react-router";
 import type { Route } from "./+types/view";
 import "./view.scss";
-import type { Creator } from "~/types/creator";
+import { type Creator, toCreator } from "~/types/creator.types";
 import {
   MAIN_PLATFORMS,
   PLATFORM_CONFIG,
   PLATFORM_ICONS,
 } from "~/components/platforms";
+import { createClient } from "~/client";
 
-const MOCK_CREATOR: Creator = {
-  id: 911,
-  name: "Jane Smith",
-  description:
-    "A sample creator for demonstration purposes, but this one is probably a little bit longer than normal and is likely going to overflow. This is how it should be though. Longer than 3 lines are just going to push into someone else's card.",
-  imageUrl:
-    "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Jane-Smith.Mr-and-Mrs-Smith.webp",
-  url: {
-    youtube: "janesmithchannel",
-    instagram: "jane_smith_insta",
-    tiktok: "janesmith",
-    twitter: "janesmith_twitter",
-    website: "https://janesmith.example.com",
-  },
-};
-
-export function meta() {
-  return [{ title: "View Creator" }];
+export function meta({ loaderData }: Route.MetaArgs) {
+  return [{ title: `Creatorverse: ${loaderData.creator.name}` }];
 }
 
-export default function ViewCreator(_: Route.ComponentProps) {
-  const creator = MOCK_CREATOR;
+export async function loader({
+  params,
+  request,
+}: Route.LoaderArgs): Promise<{ creator: Creator }> {
+  const id = Number(params.id);
+  const result = await createClient(request)
+    .supabaseClient.from("creators")
+    .select()
+    .eq("id", id)
+    .single();
+
+  if (result.error || !result.data) {
+    throw new Response("Creator not found", { status: 404 });
+  }
+
+  return { creator: toCreator(result.data) };
+}
+
+export default function ViewCreator({ loaderData }: Route.ComponentProps) {
+  const { creator } = loaderData;
 
   const allLinks = [
     ...(MAIN_PLATFORMS as readonly string[])
-      .filter((p) => Boolean(creator.url[p]))
-      .map((p) => ({ platform: p, handle: creator.url[p] as string })),
+      .filter((platform) => Boolean(creator.url[platform]))
+      .map((platform) => ({ platform: platform, handle: creator.url[platform] as string })),
     ...Object.entries(creator.url)
       .filter(
-        ([p, h]) =>
-          !(MAIN_PLATFORMS as readonly string[]).includes(p) && Boolean(h),
+        ([platform, handle]) =>
+          !(MAIN_PLATFORMS as readonly string[]).includes(platform) && Boolean(handle),
       )
-      .map(([p, h]) => ({ platform: p, handle: h as string })),
+      .map(([platform, handle]) => ({ platform: platform, handle: handle as string })),
   ];
 
   return (
@@ -92,7 +95,7 @@ export default function ViewCreator(_: Route.ComponentProps) {
                           <Icon />
                         </span>
                       )}
-                      {label}
+                      {label}:
                     </span>
                     {href ? (
                       <a href={href} target="_blank" rel="noopener noreferrer">

@@ -13,10 +13,10 @@ The following **required** functionality is completed:
 <!-- 👉🏿👉🏿👉🏿 Make sure to check off completed functionality below -->
 - [x] **A logical component structure in React is used to create the frontend of the app**
 - [ ] **At least five content creators are displayed on the homepage of the app**
-- [ ] **Each content creator item includes their name, a link to their channel/page, and a short description of their content**
+- [x] **Each content creator item includes their name, a link to their channel/page, and a short description of their content**
 - [ ] **API calls use the async/await design pattern via Axios or fetch()**
 - [x] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
-- [ ] **Each content creator has their own unique URL**
+- [x] **Each content creator has their own unique URL**
 - [ ] **The user can edit a content creator to change their name, url, or description**
 - [ ] **The user can delete a content creator**
 - [ ] **The user can add a new content creator by entering a name, url, or description and then it is displayed on the homepage**
@@ -30,6 +30,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Navigation bar
+- [x] Display of extra social media platforms
 
 ## Video Walkthrough
 
@@ -47,6 +48,7 @@ GIF created with ...  👉🏿 GIF tool here
 ## Notes
 
 First challenge was trying to set up React TypeScript-templated Vite with React Router framework. Since framework is one or another, it took quite a bit of time trying to figure out how to move certain TypeScript options from Vite template to React Router and replacing the styles from TailwindCSS with PicoCSS as they are not functioning the same way (big chunk of time went to how to use Pico's color and SCSS.)
+Second challenge was the truncation and adding "Read more". I spent a lot of time trying to figure out what was wrong when the button didn't pop up despite already adding a check through useEffect. It turned out the issue was with the placeholder client call, which was failing, blocking the useEffect from running.
 
 ## Appendix
 
@@ -59,6 +61,7 @@ First challenge was trying to set up React TypeScript-templated Vite with React 
 6. Added "Read more" and truncation on CreatorCard: 1.5 hours
 7. Updated README.md with CodePath's template: 0.17 hours
 8. Created view creator page: 1 hour
+9. Connected data loader to Supabase: 1.42 hours
 
 ## License
 

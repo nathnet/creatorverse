@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
-import type { Creator } from "~/types/creator";
+import type { Creator } from "~/types/creator.types";
 import {
   MAIN_PLATFORMS,
   PLATFORM_CONFIG,

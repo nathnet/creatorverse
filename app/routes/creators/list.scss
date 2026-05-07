@@ -27,6 +27,17 @@
   }
 }
 
+.creators-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: calc(var(--pico-spacing) * 3) 0;
+  color: var(--pico-muted-color);
+
+  p { margin-bottom: var(--pico-spacing); }
+
+  a { display: inline-block; }
+}
+
 .creators-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

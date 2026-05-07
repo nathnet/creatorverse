@@ -1,5 +1,5 @@
 export function meta() {
-  return [{ title: "Add Creator" }];
+  return [{ title: "Add a New Creator" }];
 }
 
 export default function AddCreator() {
