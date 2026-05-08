@@ -20,15 +20,15 @@ export async function loader({
   request,
 }: Route.LoaderArgs): Promise<{ creators: Creator[] }> {
   // No pagination
-  const results = await createClient(request)
+  const { data, error } = await createClient(request)
     .supabaseClient.from("creators")
     .select("*");
 
-  if (results.error || !results.data) {
+  if (error || !data) {
     throw new Response("Failed to load creators", { status: 500 });
   }
 
-  return { creators: results.data.map(toCreator) };
+  return { creators: data.map(toCreator) };
 }
 
 export default function ShowCreators({ loaderData }: Route.ComponentProps) {

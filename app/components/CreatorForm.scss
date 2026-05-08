@@ -1,0 +1,52 @@
+@use "@picocss/pico/scss/colors" as *;
+
+.creator-form {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.creator-form-required {
+  color: $red-500;
+}
+
+#invalid-helper.hidden {
+  display: none;
+}
+
+.creator-form-legend-hint {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: var(--pico-muted-color);
+}
+
+.creator-form-error {
+  color: $red-500;
+  border: 1px solid var(--pico-form-element-invalid-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: var(--pico-spacing);
+  margin-bottom: var(--pico-spacing);
+}
+
+.creator-form-custom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--pico-spacing);
+  align-items: start;
+  margin-bottom: calc(var(--pico-spacing) * 0.5);
+
+  input,
+  button {
+    margin-bottom: 0;
+  }
+}
+
+.creator-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--pico-spacing);
+
+  a[role="button"],
+  button {
+    margin: 0;
+  }
+}

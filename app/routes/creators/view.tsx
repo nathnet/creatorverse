@@ -18,17 +18,17 @@ export async function loader({
   request,
 }: Route.LoaderArgs): Promise<{ creator: Creator }> {
   const id = Number(params.id);
-  const result = await createClient(request)
+  const { data, error } = await createClient(request)
     .supabaseClient.from("creators")
     .select()
     .eq("id", id)
     .single();
 
-  if (result.error || !result.data) {
+  if (error || !data) {
     throw new Response("Creator not found", { status: 404 });
   }
 
-  return { creator: toCreator(result.data) };
+  return { creator: toCreator(data) };
 }
 
 export default function ViewCreator({ loaderData }: Route.ComponentProps) {
