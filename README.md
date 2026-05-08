@@ -4,7 +4,7 @@ Submitted by: **Nathachanok Netmaneesuk**
 
 About this web app: **Show content creators worthy of thy visits**
 
-Time spent: **idk yet** hours
+Time spent: **15** hours
 
 ## Required Features
 
@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 - [x] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
 - [x] **Each content creator has their own unique URL**
 - [x] **The user can edit a content creator to change their name, url, or description**
-- [ ] **The user can delete a content creator**
+- [x] **The user can delete a content creator**
 - [x] **The user can add a new content creator by entering a name, url, or description and then it is displayed on the homepage**
 
 The following **optional** features are implemented:
@@ -33,6 +33,7 @@ The following **additional** features are implemented:
 - [x] Addition of extra social media platforms
 - [x] Display of extra social media platforms
 - [x] Cancel button for add/edit creator
+- [x] Confirmation modal for creator deletion
 
 ## Video Walkthrough
 
@@ -66,6 +67,7 @@ Second challenge was the truncation and adding "Read more". I spent a lot of tim
 9. Connected data loader to Supabase: 1.42 hours
 10. Created add a new creator page: 1.5 hours
 11. Created edit creator page: 1 hour
+12. Added delete creator button: 0.5 hours
 
 ## License
 
